@@ -7,7 +7,7 @@
 /*  Example invocation:
     $ ./a.out -ab5 pos-arg -v -c 5 --stuff --thing=3 --thing2 5 -- -name  */
 int main(int argc, char * argv[]) {
-  enum { LONG_ARG = CHAR_MAX + 1, STUFF, THING, THING2 };
+  enum { LONG_ARG = UCHAR_MAX + 1, STUFF, THING, THING2 };
   yarg_options opt[] = {
     {      'h', no_argument,       "help" },
     {      'a', no_argument,       NULL },
@@ -22,10 +22,12 @@ int main(int argc, char * argv[]) {
   };
   yarg_settings settings = { .dash_dash = true, .style = YARG_STYLE_UNIX };
   yarg_result * res = yarg_parse(argc, argv, opt, settings);
+  if (!res)
+    { fputs("Out of memory\n", stderr);  return 1; }
   if (res->error)
     { fputs(res->error, stderr);  yarg_destroy(res);  return 1; }
   for (int i = 0; i < res->argc; i++) {
-    if (res->args[i].opt < CHAR_MAX)
+    if (res->args[i].opt <= UCHAR_MAX)
       printf("Option: %c\n", res->args[i].opt);
     else
       printf("Option: `%s'\n", res->args[i].long_opt);
