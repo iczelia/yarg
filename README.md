@@ -10,4 +10,4 @@ Four reasons:
 - `yarg` actually parses the arguments and gives you a structure that is fundamentally independent of the contents of argv.
 - `yarg` supports mixed positional arguments with flags, e.g. `--flag file_name.txt --flag2`.
 
-Despite being more featured than argument parsers like `getopt` or `getopt_long`, `yarg` retains a relatively small code footprint (350 LoC).
+Despite being more featured than argument parsers like `getopt` or `getopt_long`, `yarg` retains a relatively small code footprint (300 LoC).
