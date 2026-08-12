@@ -1,5 +1,5 @@
 /*  Written by Kamila Szewczyk (k@iczelia.net), released to
-    the public domain (0BSD).  */
+    the public domain (0BSD).  https://github.com/iczelia/yarg  */
 
 #ifndef YARG_H
 #define YARG_H
