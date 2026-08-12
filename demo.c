@@ -16,7 +16,7 @@ int main(int argc, char * argv[]) {
     {      'v', optional_argument, NULL },
     { LONG_ARG, no_argument,       "long-arg" },
     { STUFF,    no_argument,       "stuff" },
-    { THING,    no_argument,       "thing" },
+    { THING,    required_argument, "thing" },
     { THING2,   optional_argument, "thing2" },
     {        0, no_argument,       NULL }
   };
